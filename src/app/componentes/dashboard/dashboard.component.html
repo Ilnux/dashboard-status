@@ -9,18 +9,16 @@
   <div class="row fondo-azul text-light mt-2">
     <div class="col col-sm-3 offset-sm-3 mt-auto mb-auto border-end text-center">
       <fa-icon [icon]="circulo" class="fondo-icon-azul"></fa-icon>
-      <span class="fw-bold ms-1" style="font-size: 15px">Todos los sistemas operativos</span>
+      <span class="fw-bold ms-1" style="font-size: 15px">All systems operational </span>
     </div>
     <div class="col col-sm-3 mt-auto mb-auto text-center">
-      <span class="">Refrescado [ 12:11:00 UTC-0400]</span>
+      <span class="">Refreshed  [ 12:11:00 UTC-0400]</span>
     </div>
   </div>
 
   <div class="row pt-5 pb-5 fondo-hueso">
-    <div class="col-sm-10 offset-sm-1 text-end ">
-      <span class="">
-        Tiempo de actividad últimos [30] días
-      </span>
+    <div class="col-sm-10 offset-sm-1 text-end pb-2 azul-bold">
+      <span class="fw-bold">Uptime</span> Last [30] days
     </div>
     <div class="col offset-col-1 col-sm-10 offset-sm-1  p-1  fondo-blanco align-content-center">
       <div class="container">
@@ -28,11 +26,12 @@
           <div class="container">
             <div class="row ">
               <div class="col col-sm-6 ">
-                <span>Sigo APP</span>
+
+                <span class="fw-bold gris-opaco-bold">Sigo APP</span>
               </div>
 
               <div class="col col-sm-6  text-end">
-            <span>
+            <span class="gris-opaco">
                 <fa-icon [icon]="circulo" class="fondo-icon-azul"></fa-icon>
               Up
             </span>
@@ -99,11 +98,11 @@
           <div class="container">
             <div class="row">
               <div class="col col-sm-6 ">
-                <span>[98%]</span>
+                <span class="gris-opaco">[98%]</span>
               </div>
 
               <div class="col col-sm-6  text-end">
-            <span>
+            <span class="gris-opaco">
               Today
             </span>
               </div>
@@ -112,13 +111,13 @@
 
           <!--tracking-->
           <div class="container">
-            <div class="row mt-5">
+            <div class="row mt-3">
               <div class="col col-sm-6 ">
-                <span>Tracking</span>
+                <span class="gris-opaco-bold fw-bold">Tracking</span>
               </div>
 
               <div class="col col-sm-6  text-end">
-            <span>
+            <span class="gris-opaco">
                 <fa-icon [icon]="circulo" class="fondo-icon-azul"></fa-icon>
               Up
             </span>
@@ -185,11 +184,11 @@
           <div class="container">
             <div class="row">
               <div class="col col-sm-6 ">
-                <span>[100%]</span>
+                <span class="gris-opaco">[100%]</span>
               </div>
 
               <div class="col col-sm-6  text-end">
-            <span>
+            <span class="gris-opaco">
               Today
             </span>
               </div>
@@ -201,16 +200,27 @@
       </div>
     </div>
 
-    <div class="col-sm-10 offset-sm-1 mt-4 ">
-      Tiempo de actividad general
+    <div class="col-sm-10 offset-sm-1 mt-4 azul-bold fw-bold">
+      Overall Uptime
     </div>
 
-    <div class="col-sm-10 offset-sm-1 p-4" STYLE="background-color: #094E84">
+    <div class="col-sm-10 offset-sm-1 p-3" STYLE="background-color: #094E84">
       <div class="container">
         <div class="row text-center text-light">
-          <div class="col col-sm-4 border-end">1</div>
-          <div class="col col-sm-4 border-end">2</div>
-          <div class="col col-sm-4">3</div>
+          <div class="col col-sm-4 border-end"><p>
+            <span class="fw-bold">100%</span> <br>
+            Last 24 hours
+          </p></div>
+
+          <div class="col col-sm-4 border-end">
+            <span class="fw-bold">98.93%</span> <br>
+            Last 7 days
+          </div>
+
+          <div class="col col-sm-4">
+            <span class="fw-bold">98.93%</span> <br>
+            Last 30 days
+          </div>
         </div>
       </div>
     </div>

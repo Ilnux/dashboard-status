@@ -38,3 +38,15 @@
 ::-webkit-scrollbar {
   display: none;
 }
+
+.gris-opaco{
+  color: #B9B9B9
+}
+
+.gris-opaco-bold{
+  color: #656565;
+}
+
+.azul-bold {
+color: #106EB9;
+}
