@@ -1,0 +1,40 @@
+.fondo-azul {
+  background-color: #106EB9;
+  height: 50px;
+}
+
+.fondo-hueso {
+  background-color: #F5F2F2;
+}
+
+.fondo-blanco {
+  background-color: #fff;
+}
+
+.fondo-icon-azul {
+  color: #56C2D6;
+}
+
+.tipografia {
+  font-family: Roboto, serif;
+}
+
+.container-flex {
+  display: flex;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  flex-wrap: unset;
+  overflow: scroll;
+}
+
+.container-flex div {
+  background-color: #56C2D6;
+  width: 100px;
+  height: 40px;
+  margin: 1px;
+  text-align: center;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
