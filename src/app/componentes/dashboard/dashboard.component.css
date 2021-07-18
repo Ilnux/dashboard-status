@@ -58,3 +58,12 @@ color: #106EB9;
 .colorStilo{
   background-color: brown;
 }
+
+
+/*tamaño de fuente*/
+
+@media (max-width: 576px) {
+  .tamanioFuente {
+    font-size: 12px;
+  }
+}

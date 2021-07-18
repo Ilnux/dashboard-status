@@ -13,7 +13,10 @@ export class DashboardComponent implements OnInit {
 
   circulo = faCircle;
   porcentajeTraking: number = 0;
-  porcentajesigoApp: number = 0;
+  porcentajeSigoApp: number = 0;
+  porcentajeUltimoMes: number = 0;
+  porcentajeUltimaSemana: number = 0;
+  porcentajeUltimoDia: number = 0;
   dashboardStatus!: DashboardStatus;
   colorIconoTraking: string = "";
   colorIconoSigoApp: string = "";
@@ -26,7 +29,7 @@ export class DashboardComponent implements OnInit {
 
     setInterval(() => {
       this.consumoInicial();
-    }, 3000);
+    }, 1000 * 120);
   }
 
   establecerColor(color: number): string {
@@ -47,14 +50,12 @@ export class DashboardComponent implements OnInit {
     this.servicioStatus.obtenerStatus()
       .subscribe((data: DashboardStatus) => {
         this.dashboardStatus = data;
-        console.log(data)
         this.estadoApis();
 
-        this.porcentajeTraking = this.sacarPorcentaje(this.dashboardStatus.status.apis[0].tracking.days);
-        this.porcentajesigoApp = this.sacarPorcentaje(this.dashboardStatus.status.apis[1].authenticacion.days);
+        this.porcentajeTraking = this.obtenerPorcentajeSistema(this.dashboardStatus.status.apis[0].tracking.days);
+        this.porcentajeSigoApp = this.obtenerPorcentajeSistema(this.dashboardStatus.status.apis[1].authenticacion.days);
+        this.obtenerProcentajesTotales(this.dashboardStatus);
 
-        console.log("Trakcking: "+this.porcentajeTraking);
-        console.log("sigoApp: "+this.porcentajesigoApp);
       });
   }
 
@@ -72,12 +73,35 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-  sacarPorcentaje(lista: number[]) {
+  obtenerPorcentajeSistema(lista: number[]) {
     let acumulador = 0;
     lista.forEach(dia => {
       acumulador = acumulador + dia;
     })
-    return acumulador/lista.length
+    return acumulador / lista.length;
+  }
+
+  obtenerProcentajesTotales(dash: DashboardStatus): void {
+    this.porcentajeUltimoMes = (this.porcentajeSigoApp + this.porcentajeTraking) / 2;
+
+    let acumulador: number = 0;
+
+    //Porcentaje ultimos 7 dias sigoApp
+    for (let i = dash.status.apis[1].authenticacion.days.length; i > 23; i--) {
+      acumulador = acumulador + dash.status.apis[1].authenticacion.days[i - 1];
+    }
+    let porcentajeSigoApp = acumulador / 7;
+
+    acumulador = 0;
+
+    //Porcentaje ultimos 7 dias Tracking
+    for (let i = dash.status.apis[0].tracking.days.length; i > 23; i--) {
+      acumulador = acumulador + dash.status.apis[0].tracking.days[i - 1];
+    }
+    let porcentajeTracking = acumulador / 7;
+
+    this.porcentajeUltimaSemana = (porcentajeTracking + porcentajeSigoApp) / 2;
+    this.porcentajeUltimoDia = (dash.status.apis[0].tracking.days[29] + dash.status.apis[1].authenticacion.days[29]) / 2;
   }
 
 }

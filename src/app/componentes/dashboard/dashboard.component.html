@@ -1,4 +1,4 @@
-<div *ngIf="dashboardStatus != undefined" class="container-fluid tipografia align-content-md-stretch">
+<div *ngIf="dashboardStatus != undefined" class="container-fluid tipografia align-content-md-stretch tamanioFuente">
 
   <div class="row mt-2">
     <div class="col-sm-4 ">
@@ -6,10 +6,10 @@
     </div>
   </div>
 
-  <div class="row fondo-azul text-light mt-2">
+  <div class="row fondo-azul text-light mt-2 ">
     <div class="col col-sm-3 offset-sm-3 mt-auto mb-auto border-end text-center">
       <fa-icon [icon]="circulo" class="fondo-icon-azul"></fa-icon>
-      <span class="fw-bold ms-1" style="font-size: 15px">All systems operational </span>
+      <span class="fw-bold ms-1">All systems operational </span>
     </div>
     <div class="col col-sm-3 mt-auto mb-auto text-center">
       <span class="">Refreshed  {{dashboardStatus.last_updated}}</span>
@@ -17,7 +17,7 @@
   </div>
 
   <div class="row pt-5 pb-5 fondo-hueso">
-    <div class="col-sm-10 offset-sm-1 text-end pb-2 azul-bold">
+    <div class="col-sm-10 offset-sm-1 text-end pb-2 azul-bold ">
       <span class="fw-bold">Uptime</span> Last 30 days
     </div>
     <div class="col offset-col-1 col-sm-10 offset-sm-1  p-1  fondo-blanco align-content-center">
@@ -27,6 +27,7 @@
             <div class="row ">
               <div class="col col-sm-6 ">
 
+                <!--Sigo APP-->
                 <span class="fw-bold gris-opaco-bold">Sigo APP</span>
               </div>
 
@@ -53,7 +54,7 @@
           <div class="container">
             <div class="row">
               <div class="col col-sm-6 ">
-                <span class="gris-opaco">{{ porcentajesigoApp | number : '1.1-2'}}%</span>
+                <span class="gris-opaco">{{ porcentajeSigoApp | number : '1.1-2'}}%</span>
               </div>
 
               <div class="col col-sm-6  text-end">
@@ -64,7 +65,7 @@
             </div>
           </div>
 
-          <!--tracking-->
+          <!--Tracking-->
           <div class="container">
             <div class="row mt-3">
               <div class="col col-sm-6 ">
@@ -114,21 +115,21 @@
       Overall Uptime
     </div>
 
-    <div class="col-sm-10 offset-sm-1 p-3" STYLE="background-color: #094E84">
+    <div class="col-sm-10 offset-sm-1 p-3" style="background-color: #094E84">
       <div class="container">
         <div class="row text-center text-light">
           <div class="col col-sm-4 border-end"><p>
-            <span class="fw-bold">100%</span> <br>
+            <span class="fw-bold">{{porcentajeUltimoDia | number : '1.1-2'}}%</span> <br>
             Last 24 hours
           </p></div>
 
           <div class="col col-sm-4 border-end">
-            <span class="fw-bold">98.93%</span> <br>
+            <span class="fw-bold">{{porcentajeUltimaSemana | number : '1.1-2'}}%</span> <br>
             Last 7 days
           </div>
 
           <div class="col col-sm-4">
-            <span class="fw-bold">98.93%</span> <br>
+            <span class="fw-bold">{{porcentajeUltimoMes | number : '1.1-2'}}%</span> <br>
             Last 30 days
           </div>
         </div>
@@ -136,20 +137,4 @@
     </div>
   </div>
 </div>
-
-<div *ngIf="dashboardStatus != undefined">
-  <div *ngFor="let day of dashboardStatus.status.apis[0].tracking.days">
-    <h1>{{day}}</h1>
-  </div>
-</div>
-
-<!--<div>-->
-<!--  <div *ngIf="tracking != undefined">-->
-<!--  <h1>{{tracking.days}}</h1>-->
-<!--    <div *ngFor="let day of-->
-<!--     tracking.days">-->
-<!--      <h1>{{day}}</h1>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
 
