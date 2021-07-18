@@ -1,4 +1,4 @@
-<div class="container-fluid tipografia align-content-md-stretch">
+<div *ngIf="dashboardStatus != undefined" class="container-fluid tipografia align-content-md-stretch">
 
   <div class="row mt-2">
     <div class="col-sm-4 ">
@@ -12,13 +12,13 @@
       <span class="fw-bold ms-1" style="font-size: 15px">All systems operational </span>
     </div>
     <div class="col col-sm-3 mt-auto mb-auto text-center">
-      <span class="">Refreshed  [ 12:11:00 UTC-0400]</span>
+      <span class="">Refreshed  {{dashboardStatus.last_updated}}</span>
     </div>
   </div>
 
   <div class="row pt-5 pb-5 fondo-hueso">
     <div class="col-sm-10 offset-sm-1 text-end pb-2 azul-bold">
-      <span class="fw-bold">Uptime</span> Last [30] days
+      <span class="fw-bold">Uptime</span> Last 30 days
     </div>
     <div class="col offset-col-1 col-sm-10 offset-sm-1  p-1  fondo-blanco align-content-center">
       <div class="container">
@@ -32,8 +32,8 @@
 
               <div class="col col-sm-6  text-end">
             <span class="gris-opaco">
-                <fa-icon [icon]="circulo" class="fondo-icon-azul"></fa-icon>
-              Up
+                <fa-icon [icon]="circulo" [ngClass]="colorIconoSigoApp"></fa-icon>
+              {{dashboardStatus.status.apis[0].tracking.current_status | titlecase}}
             </span>
               </div>
             </div>
@@ -43,53 +43,8 @@
             <div class="row">
               <div class="col-sm-12 ">
                 <div class="container-flex">
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
+                  <div *ngFor="let day of dashboardStatus.status.apis[1].authenticacion.days"
+                       [ngStyle]="{backgroundColor: establecerColor(day)}"></div>
                 </div>
               </div>
             </div>
@@ -98,7 +53,7 @@
           <div class="container">
             <div class="row">
               <div class="col col-sm-6 ">
-                <span class="gris-opaco">[98%]</span>
+                <span class="gris-opaco">{{ porcentajesigoApp | number : '1.1-2'}}%</span>
               </div>
 
               <div class="col col-sm-6  text-end">
@@ -118,8 +73,8 @@
 
               <div class="col col-sm-6  text-end">
             <span class="gris-opaco">
-                <fa-icon [icon]="circulo" class="fondo-icon-azul"></fa-icon>
-              Up
+                <fa-icon [icon]="circulo" [ngClass]="colorIconoTraking"></fa-icon>
+              {{dashboardStatus.status.apis[1].authenticacion.current_status | titlecase}}
             </span>
               </div>
             </div>
@@ -129,53 +84,8 @@
             <div class="row">
               <div class="col-sm-12 ">
                 <div class="container-flex">
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
-                  <div class="hijo"></div>
+                  <div *ngFor="let day of dashboardStatus.status.apis[0].tracking.days"
+                       [ngStyle]="{backgroundColor: establecerColor(day)}"></div>
                 </div>
               </div>
             </div>
@@ -184,7 +94,7 @@
           <div class="container">
             <div class="row">
               <div class="col col-sm-6 ">
-                <span class="gris-opaco">[100%]</span>
+                <span class="gris-opaco">{{ porcentajeTraking | number : '1.1-2'}}%</span>
               </div>
 
               <div class="col col-sm-6  text-end">
@@ -225,5 +135,21 @@
       </div>
     </div>
   </div>
-
 </div>
+
+<div *ngIf="dashboardStatus != undefined">
+  <div *ngFor="let day of dashboardStatus.status.apis[0].tracking.days">
+    <h1>{{day}}</h1>
+  </div>
+</div>
+
+<!--<div>-->
+<!--  <div *ngIf="tracking != undefined">-->
+<!--  <h1>{{tracking.days}}</h1>-->
+<!--    <div *ngFor="let day of-->
+<!--     tracking.days">-->
+<!--      <h1>{{day}}</h1>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+

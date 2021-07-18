@@ -15,6 +15,10 @@
   color: #56C2D6;
 }
 
+.fondo-icon-rojo {
+  color: #ff0000;
+}
+
 .tipografia {
   font-family: Roboto, serif;
 }
@@ -49,4 +53,8 @@
 
 .azul-bold {
 color: #106EB9;
+}
+
+.colorStilo{
+  background-color: brown;
 }
